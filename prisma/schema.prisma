@@ -9,3 +9,16 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Note {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  category  String?
+  published Boolean? @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map(name: "notes")
+}
