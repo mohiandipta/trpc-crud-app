@@ -4,7 +4,7 @@ export const createNoteSchema = z.object({
     title: z.string({
         required_error: "title is required!"
     }),
-    constent: z.string({
+    content: z.string({
         required_error: "content is required!"
     }),
     category: z.string().optional(),
@@ -19,7 +19,7 @@ export const updateNoteSchema = z.object({
     params,
     body: z.object({
         title: z.string(),
-        constent: z.string(),
+        content: z.string(),
         category: z.string(),
         published: z.boolean()
     })
@@ -34,3 +34,5 @@ export const filterQuery = z.object({
 
 export type ParamsInput = z.TypeOf<typeof params>
 export type FilterQueryInput = z.TypeOf<typeof filterQuery>
+export type CreateNoteInput = z.TypeOf<typeof createNoteSchema>
+export type UpdateNoteInput = z.TypeOf<typeof updateNoteSchema>
